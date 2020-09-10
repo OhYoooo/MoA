@@ -6,9 +6,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import hyperOpt
+import hyperOptimizor
 
-class lightgbm:
+class lightGBM:
     def __init__(self):
         self.columns_scored = [
             '5-alpha_reductase_inhibitor',
@@ -121,6 +121,7 @@ class lightgbm:
                 'num_threads': 4,
                 'random_state': 42,
                 'learning_rate': 0.01,
+                'verbose': -1,
                 
                 # from Optuna result in Version 7
                 'num_leaves': 212,
@@ -141,6 +142,7 @@ class lightgbm:
                 'num_threads': 4,
                 'random_state': 42,
                 'learning_rate': 0.01,
+                'verbose': -1,
                 
                 # from Optuna result in Version 15
                 'num_leaves': 106,
@@ -154,7 +156,7 @@ class lightgbm:
             }
         
         else:
-            opt = hyperOpt.hyperOpt(x_train, y_train)
+            opt = hyperOptimizor.hyperOpt(x_train, y_train)
             self.params_1 = self.params_2 = opt.optimize()
 
     def predict(self, x_train, y_train, x_test):

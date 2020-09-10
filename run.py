@@ -92,5 +92,7 @@ x_train = train.drop('sig_id', axis = 1)
 y_train = train_target.drop('sig_id', axis = 1)
 x_test = test.drop('sig_id', axis = 1)
 
-lightGBM = lgbm.lightgbm()
+
+# LightGBM model
+lightGBM = lgbm.lightGBM()
 lightGBM.predict(x_train, y_train, x_test)

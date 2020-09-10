@@ -33,7 +33,7 @@ class hyperOpt:
             'lambda_l2': trial.suggest_loguniform('lambda_l2', 0.1, 2)
         }
         
-        model = lgbm.lightgbm()
+        model = lgbm.lightGBM()
         scores = []
         for column in self.columns_to_try:
             _, _, score = model.fit_predict(3, params, self.x_train, self.y_train[column], None)
